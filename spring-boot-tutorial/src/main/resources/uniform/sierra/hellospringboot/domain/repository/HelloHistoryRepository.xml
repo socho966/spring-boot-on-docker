@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+    namespace="uniform.sierra.hellospringboot.domain.repository.HelloHistoryRepository">
+    <insert id="insert"
+        parameterType="uniform.sierra.hellospringboot.domain.model.HelloHistory">
+        INSERT INTO hello_history (name, num, last_visited)
+        VALUES (#{name}, #{num}, #{lastVisited})
+    </insert>
+    <update id="update" parameterType="uniform.sierra.hellospringboot.domain.model.HelloHistory">
+        UPDATE hello_history set num = #{num}, last_visited = #{lastVisited}
+        WHERE name = #{name}
+    </update>
+    <select id="selectByName" parameterType="String"
+        resultType="uniform.sierra.hellospringboot.domain.model.HelloHistory">
+        SELECT name, num, last_visited FROM hello_history
+        WHERE name = #{name}
+    </select>
+</mapper>

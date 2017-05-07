@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+    <!--/* Common header. */-->
+    <header class="commonHeader" layout:fragment="commonHeader">
+        <h1>
+            <a th:href="@{/}">HelloApplication</a>
+        </h1>
+    </header>
+
+    <!--/* Common footer. */-->
+    <footer class="commonFooter" layout:fragment="commonFooter">
+        &copy; 2017 Sierra Uniform. </footer>
+</body>
+</html>

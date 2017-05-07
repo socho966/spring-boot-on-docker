@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout}">
+<head>
+<title>Hello index page.</title>
+</head>
+<body>
+    <section class="container" layout:fragment="mainContent">
+        <form class="form-horizontal" th:action="@{/hello/sayHello}"
+            th:object="${sayHelloForm}">
+
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-11">Input bellow.</div>
+            </div>
+            <div
+                layout:replace="~{layouts/itemFragments::singleInputItem('name', 'Name', ~{::#tbxName})}">
+                <label>Name</label><input type="text" id="tbxName"
+                    class="form-control" th:field="*{name}" />
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

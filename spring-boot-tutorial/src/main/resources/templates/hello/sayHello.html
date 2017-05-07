@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout}">
+<head>
+<title>Hello index page.</title>
+</head>
+<body>
+    <section class="container" layout:fragment="mainContent" th:object="${sayHelloResult}">
+        <p>
+            Hello,
+            <th:block th:text="*{name}">Name.</th:block>
+            !<br /> Welcome to the Spring Boot and Thymeleaf world!<br />
+            <th:block th:if="*{num} eq 1">Nice to meet you. :)</th:block>
+            <th:block th:if="*{num} gt 1">
+                I'm glad to meet you again! :p<br />
+                You visited here at <th:block th:text="*{lastVisited}">1970-01-01T01:02:03.000</th:block>.
+            </th:block>
+        </p>
+    </section>
+</body>
+</html>

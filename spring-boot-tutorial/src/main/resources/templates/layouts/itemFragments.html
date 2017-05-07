@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+    <!--/*
+        Single input item with label and error message.
+        reference: http://enterprisegeeks.hatenablog.com/entry/2016/05/25/152437
+    */-->
+    <div class="form-group" th:classappend="${#fields.hasErrors('__${fieldId}__')} ? 'has-error'"
+        layout:fragment="singleInputItem(fieldId, labelValue, inputBody)">
+        <label class="col-sm-2 control-label" th:for="${fieldId}"
+            th:text="${labelValue}">Label value will be put
+            here.</label>
+        <div class="col-sm-6">
+            <th:block th:replace="${inputBody}">
+                <input type="text" value="Input body will put here.">
+            </th:block>
+        </div>
+        <div class="col-sm-4 text-danger"
+            th:errors="*{__${fieldId}__}">Validation
+            error message will be put here.</div>
+    </div>
+</body>
+</html>

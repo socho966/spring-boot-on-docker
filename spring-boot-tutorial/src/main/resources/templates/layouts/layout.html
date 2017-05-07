@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">
+    Hello application</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--/* jQuery */-->
+<script type="text/javascript"
+    th:href="@{/js/jquery/jquery-3.2.1.min.js}"></script>
+
+<!--/* Bootstrap 3.3.7 */-->
+<link rel="stylesheet" type="text/css"
+    th:href="@{/css/bootstrap/bootstrap.min.css}">
+
+<link rel="stylesheet" type="text/css"
+    th:href="@{/css/bootstrap/bootstrap-theme.min.css}">
+
+<script th:href="@{/js/bootstrap.min.js}"></script>
+
+<!--/* Application common */-->
+<link rel="stylesheet" type="text/css"
+    th:href="@{/css/applicationCommon.css}" />
+
+</head>
+<body>
+    <header layout:replace="~{layouts/layoutFragments::commonHeader}">Common
+        header area.</header>
+    <section class="mainContent" layout:fragment="mainContent"></section>
+    <footer class="commonFooter"
+        layout:replace="~{layouts/layoutFragments::commonFooter}">Common
+        footer area.</footer>
+</body>
+</html>
